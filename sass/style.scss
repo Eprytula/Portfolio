@@ -1,0 +1,508 @@
+@import "var";
+@import "reset";
+
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  font-size: $text-size;
+  background: $bg-color;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+.wrapper {
+  padding: $gap;
+  min-height: 100vh;
+  position: relative;
+}
+.header {
+  height: $gap;
+  position: fixed;
+  background: transparent;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  &-name {
+    margin-left: $gap;
+    font-size: $sm-text-size;
+  }
+  &-switch {
+    margin-right: $gap;
+    border-radius: 50%;
+    outline: none;
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+}
+.menu {
+  width: $gap;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 99;
+  transition: translateY(50%);
+
+  &-btn-burger {
+    width: 48px;
+    height: 31px;
+    position: absolute;
+    left: 48px;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    z-index: 99;
+    &-line {
+      width: 48px;
+      height: 5px;
+      background: $icon-color;
+      display: block;
+      &::before,
+      &::after {
+        content: "";
+        width: 48px;
+        height: 5px;
+        background: $icon-color;
+        display: block;
+        position: absolute;
+        left: -5px;
+        top: 0;
+        z-index: 99;
+      }
+      &::after {
+        top: 26px;
+      }
+    }
+  }
+}
+.links {
+  width: $gap;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero {
+  padding: $gap;
+  width: 100%;
+  background: $primary-color;
+  height: calc(100vh - 160px);
+  margin: 0 0 $gap;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:before {
+    content: "";
+    width: 50%;
+    background: $bg-card-color;
+    height: calc(100vh - 160px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+  }
+  &-text {
+    position: relative;
+    z-index: 10;
+    &-heading {
+      font-size: $text-size;
+      font-weight: 700;
+      margin: 0 0 40px;
+      display: block;
+    }
+    &-p {
+      width: 60%;
+    }
+  }
+  .info {
+    opacity: 0;
+    display: none;
+  }
+  &:hover {
+    &:before {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 4s, transform 2s;
+    }
+    .info {
+      display: block;
+      opacity: 1;
+    }
+    .welcome {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+.btn-menu {
+  display: none;
+}
+.menu-open {
+  .menu-btn-burger {
+    width: 48px;
+    height: 31px;
+    position: absolute;
+    left: 48px;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    transform: translateX(-30px) scale(0.5);
+    z-index: 99;
+    &-line {
+      width: 48px;
+      height: 5px;
+      background: $icon-color;
+      display: block;
+      transition: all 500ms ease-in-out;
+      transform: rotate(45deg);
+      &::before,
+      &::after {
+        content: "";
+        width: 48px;
+        height: 5px;
+        background: $icon-color;
+        display: block;
+        position: absolute;
+        left: 0;
+        transform: rotate(-90deg);
+        z-index: 99;
+        transition: all 500ms ease-in-out;
+      }
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+  .welcome {
+    opacity: 0;
+    display: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+.menu-open .btn-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.menu-open .hero {
+  &-text {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+    &-heading {
+      font-size: $text-size;
+      font-weight: 700;
+      margin: 0 0 40px;
+      display: block;
+    }
+  }
+  .info {
+    opacity: 1;
+    display: block;
+    width: 40%;
+  }
+  &:before {
+    content: "";
+    width: 50%;
+    background: $bg-card-color;
+    height: calc(100vh - 160px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  &::before {
+    animation: side-to-side;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+@keyframes side-to-side {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.parallax {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("../img/img1.png");
+  height: 820px;
+}
+.skills {
+  width: 100%;
+  background: $bg-card-color;
+  margin: 0 0 $gap;
+  padding: $gap;
+  font-size: $text-size;
+  &-title {
+    margin: 0 0 20px;
+    color: $main-text;
+    font-size: $gap;
+  }
+  .skill {
+    display: flex;
+    margin: 0 0 $text-size;
+    align-items: center;
+  }
+  .skill-item {
+    width: 40%;
+  }
+}
+.progress-bar {
+  display: inline-block;
+  background: $brand-color;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.css-bar {
+  animation-name: css;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes css {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 55%;
+    border-radius: 0;
+  }
+}
+.layout-bar {
+  animation-name: layout;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes layout {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 40%;
+    border-radius: 0;
+  }
+}
+.bootstrap-bar {
+  animation-name: boot;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes boot {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 30%;
+    border-radius: 0;
+  }
+}
+.jquery-bar {
+  animation-name: jquery;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes jquery {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 25%;
+    border-radius: 0;
+  }
+}
+.preprocessor-bar {
+  animation-name: prep;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes prep {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 25%;
+    border-radius: 0;
+  }
+}
+.gulp-bar {
+  animation-name: gulp;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes gulp {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 35%;
+    border-radius: 0;
+  }
+}
+.git-bar {
+  animation-name: git;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+@keyframes git {
+  0% {
+    width: 14px;
+  }
+  20% {
+    border-radius: 0;
+  }
+  100% {
+    width: 35%;
+    border-radius: 0;
+  }
+}
+.projects-section {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("../img/img2.png");
+  min-height: 820px;
+  margin: 0 0 $gap;
+}
+.projects {
+  display: none;
+  padding: $gap;
+  min-height: 820px;
+  &-title {
+    color: #e6db74;
+    font-size: $gap;
+    margin: 0 0 $gap;
+  }
+  &-header {
+    margin: 40px 0;
+    color: #fff;
+    font-size: $text-size;
+    font-weight: 900;
+  }
+  &-p {
+    color: $bg-card-color;
+    width: 50%;
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
+}
+.email {
+  display: flex;
+  align-items: center;
+}
+.projects-section:hover .projects {
+  display: block;
+  background: $main-text;
+}
+.experience {
+  background: $bg-card-color;
+  margin: 0 0 $gap;
+  padding: $gap;
+  .title {
+    font-size: $gap;
+    margin: 0 0 $gap;
+  }
+  .study {
+    margin: 0 0 46px;
+  }
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $text-size;
+  color: $main-text;
+}
+.num {
+  font-size: $sm-text-size;
+}
+.style {
+  color: $brand-color;
+  font-size: 1.2rem;
+  font-style: italic;
+  display: block;
+}
+.dt {
+  .header-name {
+    color: $bg-color;
+  }
+  .hero {
+    background: $icon-color;
+    .num,
+    .email {
+      color: #000;
+    }
+  }
+  background: $bg-color-dt;
+  .experience {
+    background: $main-text-dt;
+    color: $bg-card-color;
+  }
+  .skills {
+    background: $main-text-dt;
+    color: $bg-card-color;
+    &-title {
+      color: $bg-color;
+    }
+  }
+  .email {
+    color: $bg-color;
+  }
+  .num {
+    color: $bg-color;
+  }
+  .footer {
+    svg * {
+      fill: #fff;
+    }
+  }
+}
