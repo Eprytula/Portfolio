@@ -12,6 +12,7 @@ body {
   background: $bg-color;
   height: 100%;
   font-family: "Roboto", sans-serif;
+  line-height: 1.4;
 }
 .wrapper {
   padding: $gap;
@@ -21,6 +22,7 @@ body {
 .header {
   height: $gap;
   position: fixed;
+  z-index: -1;
   background: transparent;
   width: 100%;
   top: 0;
@@ -32,15 +34,41 @@ body {
   &-name {
     margin-left: $gap;
     font-size: $sm-text-size;
+    background: $bg-color;
+    padding: 5px;
   }
-  &-switch {
+  .switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    width: 40px;
+    background: $bg-card-color;
+    border-radius: 10px;
+    box-shadow: 0 0 2px black;
     margin-right: $gap;
-    border-radius: 50%;
     outline: none;
-    transform: scale(1.5);
     cursor: pointer;
+    .circle {
+      height: 20px;
+      width: 20px;
+      background: $bg-card-color;
+      box-shadow: 0 0 2px black;
+      border-radius: 50%;
+    }
+    .circle-off {
+      position: absolute;
+      right: 0;
+      background: $bg-color-dt;
+      box-shadow: 0 0 2px #fff;
+    }
+  }
+  .switch-dt {
+    background: $icon-color-dt;
+    box-shadow: 0 0 2px $icon-color-dt;
   }
 }
+
 .menu {
   width: $gap;
   position: fixed;
@@ -50,6 +78,8 @@ body {
   transition: translateY(50%);
 
   &-btn-burger {
+    transition: 0.2s;
+    filter: drop-shadow(0 0 2px $bg-color);
     width: 48px;
     height: 31px;
     position: absolute;
@@ -93,6 +123,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  i {
+    color: $icon-color;
+  }
 }
 .hero {
   padding: $gap;
@@ -123,13 +156,13 @@ body {
       margin: 0 0 40px;
       display: block;
     }
-    &-p {
-      width: 60%;
-    }
   }
   .info {
     opacity: 0;
     display: none;
+    .hero-text-p {
+      font-size: 28px;
+    }
   }
   &:hover {
     &:before {
@@ -149,6 +182,9 @@ body {
 }
 .btn-menu {
   display: none;
+  h2 {
+    margin-bottom: 15px;
+  }
 }
 .menu-open {
   .menu-btn-burger {
@@ -284,17 +320,22 @@ a {
   width: 14px;
   height: 14px;
   border-radius: 50%;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 .css-bar {
   animation-name: css;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes css {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 55%;
     border-radius: 0;
   }
   100% {
@@ -304,14 +345,18 @@ a {
 }
 .layout-bar {
   animation-name: layout;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes layout {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 40%;
     border-radius: 0;
   }
   100% {
@@ -321,14 +366,18 @@ a {
 }
 .bootstrap-bar {
   animation-name: boot;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes boot {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 30%;
     border-radius: 0;
   }
   100% {
@@ -338,14 +387,18 @@ a {
 }
 .jquery-bar {
   animation-name: jquery;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes jquery {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 25%;
     border-radius: 0;
   }
   100% {
@@ -355,31 +408,39 @@ a {
 }
 .preprocessor-bar {
   animation-name: prep;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes prep {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 24%;
     border-radius: 0;
   }
   100% {
-    width: 25%;
+    width: 24%;
     border-radius: 0;
   }
 }
 .gulp-bar {
   animation-name: gulp;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes gulp {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 35%;
     border-radius: 0;
   }
   100% {
@@ -389,18 +450,22 @@ a {
 }
 .git-bar {
   animation-name: git;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
 @keyframes git {
   0% {
     width: 14px;
   }
-  20% {
+  10% {
+    width: 14px;
+  }
+  80% {
+    width: 33%;
     border-radius: 0;
   }
   100% {
-    width: 35%;
+    width: 33%;
     border-radius: 0;
   }
 }
@@ -414,8 +479,10 @@ a {
   margin: 0 0 $gap;
 }
 .projects {
-  display: none;
+  transition: 3s;
+  opacity: 0;
   padding: $gap;
+  background: $main-text;
   min-height: 820px;
   &-title {
     color: #e6db74;
@@ -440,8 +507,8 @@ a {
   align-items: center;
 }
 .projects-section:hover .projects {
-  display: block;
-  background: $main-text;
+  transition: 2s;
+  opacity: 1;
 }
 .experience {
   background: $bg-card-color;
@@ -453,6 +520,9 @@ a {
   }
   .study {
     margin: 0 0 46px;
+    .study-school {
+      font-weight: 900;
+    }
   }
 }
 .footer {
@@ -472,8 +542,27 @@ a {
   display: block;
 }
 .dt {
+  .style {
+    color: $brand-color-dt;
+  }
+  i {
+    color: $icon-color-dt;
+  }
+  .menu-btn-burger {
+    filter: drop-shadow(0 0 2px $icon-color-dt);
+    &-line {
+      background: $icon-color-dt;
+      &::before,
+      &::after {
+        content: "";
+        background: $icon-color-dt;
+      }
+    }
+  }
+
   .header-name {
     color: $bg-color;
+    background: $bg-color-dt;
   }
   .hero {
     background: $icon-color;
@@ -487,11 +576,31 @@ a {
     background: $main-text-dt;
     color: $bg-card-color;
   }
+  .parallax {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("../img/dark-image1.jpg");
+    height: 820px;
+  }
+  .projects-section {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url("../img/dark-image2.jpg");
+    min-height: 820px;
+    margin: 0 0 $gap;
+  }
   .skills {
     background: $main-text-dt;
     color: $bg-card-color;
     &-title {
       color: $bg-color;
+    }
+    .progress-bar {
+      background: $brand-color-dt;
     }
   }
   .email {
@@ -504,5 +613,123 @@ a {
     svg * {
       fill: #fff;
     }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  body {
+    font-size: $media-ex-sm-size;
+  }
+  .header {
+    &-name {
+      font-size: $media-ex-sm-size;
+    }
+  }
+  .links {
+    .fab {
+      font-size: $media-size;
+    }
+  }
+  .hero {
+    padding: $media-sm-size;
+    margin: 0 0 $media-sm-size;
+    .info {
+      font-size: $media-ex-sm-size;
+      .hero-text-heading {
+        font-size: $media-sm-size;
+        font-weight: 700;
+        margin: 0 0 $media-sm-size;
+        display: block;
+      }
+      .hero-text-p {
+        font-size: 16px;
+      }
+    }
+    &-text {
+      &-heading {
+        font-size: $media-size;
+        font-weight: 700;
+        margin: 0 0 40px;
+        display: block;
+      }
+    }
+  }
+  .menu-open .hero-text {
+    margin: 10px;
+    position: relative;
+    z-index: 10;
+    .btn-menu {
+      &-item {
+        font-size: $media-ex-sm-size;
+      }
+    }
+  }
+  .style {
+    font-size: 14px;
+    margin: 0 0 -3px;
+  }
+  .skills {
+    width: 100%;
+    margin: 0 0 $media-sm-size;
+    padding: $media-sm-size;
+    font-size: $media-sm-size;
+    &-title {
+      margin: 0 0 $media-sm-size;
+      font-size: $media-size;
+      font-weight: 900;
+    }
+    .skill {
+      margin: 0 0 $media-sm-size;
+    }
+    .skill-item {
+      width: 40%;
+      font-size: $media-sm-size;
+    }
+  }
+  .projects-section {
+    min-height: $media-sm-size;
+    margin: 0;
+  }
+  .projects {
+    padding: $media-sm-size;
+    &-title {
+      font-size: $media-size;
+      margin: 0 0 $media-sm-size;
+      font-weight: 900;
+    }
+    &-header {
+      margin: $media-sm-size 0;
+      font-size: $media-size;
+      font-weight: 900;
+    }
+    &-p {
+      width: 100%;
+      font-size: $media-sm-size;
+      margin: 0 0 $media-sm-size;
+    }
+  }
+
+  .experience {
+    margin: 0 0 30px;
+    padding: $media-sm-size;
+    .title {
+      font-size: $media-size;
+      margin: 0 0 $media-sm-size;
+    }
+    .study {
+      margin: 0 0 40px;
+      .study-school {
+        font-weight: 900;
+      }
+    }
+  }
+  .footer {
+    font-size: $text-size;
+  }
+  .num {
+    font-size: $media-ex-sm-size;
+  }
+  .email {
+    font-size: $media-ex-sm-size;
   }
 }

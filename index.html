@@ -8,10 +8,12 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="wrapper">
+        <div class="wrapper"  id="menu">
             <header class="header">
                 <h1 class="header-name">Elena Prytula</h1>
-                <button class="header-switch"><i class="fas fa-toggle-on"></i></button>
+                <div class="switch">
+                    <div class="circle"></div>
+                </div>
             </header>
             <nav class="menu">
                 <a href="#menu">
@@ -24,33 +26,33 @@
                 <li><a href="#"><i class="fab fa-github"></i></a></li>
                 <li><a href="#"><i class="fab fa-facebook"></i></a></li>
             </ul>
-		    <section class="hero"  id="menu">
-            <div class="hero-text">
-                <strong class="welcome">WELCOME TEXT</strong>
-                <div class="btn-menu">
-                    <h2 class="btn-menu-item"><a href="#skills">Skills</a></h2>
-                    <h2 class="btn-menu-item"><a href="#projects">Projects</a></h2>
-                    <h2 class="btn-menu-item"><a href="#experience">Experience</a></h2>
-                    <p class="num btn-menu-item">+38 093 111 11 11</p>
-                    <p class="style btn-menu-item">Want to collaborate?</p>
-                    <p class="btn-menu-item email">email me <svg xmlns="http://www.w3.org/2000/svg" width="32" height="8" fill="none" viewBox="0 0 32 8">
-                            <g clip-path="url(#prefix__clip0)">
-                                <path fill="#272822"
-                                    d="M23.196.031c.215-.052.447-.031.625.052L30.68 3.73c.107.063.178.146.178.24 0 .093-.071.187-.178.25L23.82 7.917c-.178.083-.41.104-.625.052-.196-.052-.339-.167-.339-.302V5.333H.571C.25 5.333 0 5.187 0 5V3c0-.188.25-.333.571-.333h22.286V.333c0-.135.125-.25.34-.302z" />
-                            </g>
-                            <defs>
-                                <clipPath id="prefix__clip0">
-                                    <path fill="#fff" d="M0 8H8V40H0z" transform="rotate(-90 0 8)" />
-                                </clipPath>
-                            </defs>
-                        </svg></p>
+		    <section class="hero">
+                <div class="hero-text">
+                    <strong class="welcome">Top HTML CSS developer. Wonderful balance between price and quality.</strong>
+                    <div class="btn-menu">
+                        <h2 class="btn-menu-item"><a href="#skills">Skills</a></h2>
+                        <h2 class="btn-menu-item"><a href="#projects">Projects</a></h2>
+                        <h2 class="btn-menu-item"><a href="#experience">Experience</a></h2>
+                        <p class="num btn-menu-item">+38 093 111 11 11</p>
+                        <p class="style btn-menu-item">Want to collaborate?</p>
+                        <p class="btn-menu-item email">email me <svg xmlns="http://www.w3.org/2000/svg" width="32" height="8" fill="none" viewBox="0 0 32 8">
+                                <g clip-path="url(#prefix__clip0)">
+                                    <path fill="#272822"
+                                        d="M23.196.031c.215-.052.447-.031.625.052L30.68 3.73c.107.063.178.146.178.24 0 .093-.071.187-.178.25L23.82 7.917c-.178.083-.41.104-.625.052-.196-.052-.339-.167-.339-.302V5.333H.571C.25 5.333 0 5.187 0 5V3c0-.188.25-.333.571-.333h22.286V.333c0-.135.125-.25.34-.302z" />
+                                </g>
+                                <defs>
+                                    <clipPath id="prefix__clip0">
+                                        <path fill="#fff" d="M0 8H8V40H0z" transform="rotate(-90 0 8)" />
+                                    </clipPath>
+                                </defs>
+                            </svg></p>
+                    </div>
+                    <div class="info">
+                        <span class="style">since 2020</span>
+                        <strong class="hero-text-heading">Markup Developer</strong>
+                        <p class="hero-text-p">Strong professional focus and personal interest to UI/UX design and Front-End engineering </p>
+                    </div> 
                 </div>
-                <div class="info">
-                    <span class="style">since 2020</span>
-                    <strong class="hero-text-heading">Markup Developer</strong>
-                    <p class="hero-text-p">Strong professional focus and personal interest to UI/UX design and Front-End engineering </p>
-                </div> 
-            </div>
             </section>
             <section class="parallax">
             </section>
@@ -133,13 +135,12 @@
 			burger.onclick = function() {
 				wrapper.classList.toggle("menu-open");
 			}
-            let switcher = document.querySelector(".fas");
-            
-            let switchBg = document.querySelector(".header-switch");
-                switchBg.onclick = function () {
+            let circle = document.querySelector(".circle");
+            let switcher = document.querySelector(".switch");
+                switcher.onclick = function () {
                     wrapper.classList.toggle("dt");
-                    switcher.classList.toggle("fa-toggle-on");
-                    switcher.classList.toggle("fa-toggle-off")
+                    circle.classList.toggle("circle-off");
+                    switcher.classList.toggle("switch-dt");
                 }
 
             
